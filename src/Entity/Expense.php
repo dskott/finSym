@@ -16,13 +16,13 @@ class Expense
      */
     private $id;
 
-    /*
+    /**
      * @ORM\Column(type="text", length=100)
      */
     private $title;
 
-    /*
-     * @ORM\Column(type="text)
+    /**
+     * @ORM\Column(type="text" )
      */
     private $body;
 
