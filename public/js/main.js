@@ -6,7 +6,7 @@ if (articles){
             if (confirm('Are you sure?')) {
                 const id = e.target.getAttribute('data-id');
 
-                fetch(`/article/delete/${id}`, {method: 'DELETE'}).
+                fetch(`/expense/delete/${id}`, {method: 'DELETE'}).
                 then(res => window.location.reload());
             }
         }

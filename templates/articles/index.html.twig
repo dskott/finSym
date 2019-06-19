@@ -3,31 +3,31 @@
 {%  block title %} finSym {% endblock %}
 
 {% block body %}
-    {% if articles %}
-        <table id="articles" class="table table-striped">
+    {% if expenses %}
+        <table id="expenses" class="table table-striped">
             <thead>
                 <tr>
-                    <th>Article title</th>
+                    <th>Expense title</th>
                     <th>Actions</th>
                 </tr>
             </thead>
 
             <tbody>
-                {% for article in articles %}
+                {% for expense in expenses %}
                     <tr>
-                        <td> {{ article.title }}</td>
+                        <td> {{ expense.title }}</td>
                         <td>
-                            <a href="/article/{{ article.id }}" class="btn btn-dark">Show</a>
-                            <a href="/article/edit/{{ article.id }}" class="btn btn-light">Edit</a>
+                            <a href="/expense/{{ expense.id }}" class="btn btn-dark">Show</a>
+                            <a href="/expense/edit/{{ expense.id }}" class="btn btn-light">Edit</a>
                             <a href="#" class="btn btn-danger delete-article" data-id="
-                            {{ article.id }}">Delete</a>
+                            {{ expense.id }}">Delete</a>
                         </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
     {% else %}
-        <p>No articles to display</p>
+        <p>No expenses to display</p>
     {% endif %}
 
 {% endblock %}
