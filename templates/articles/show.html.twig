@@ -3,8 +3,12 @@
 {%  block title %} finSym {% endblock %}
 
 {% block body %}
-    <h1>{{ article.title }}</h1>
-    <p>{{ article.body }}</p>
+    <h1>{{ expense.title }}</h1>
+    <p>{{ expense.category }}</p>
+    <p>{{ expense.amount }}</p>
+    <p>{{ expense.currency }}</p>
+    <p>{{ expense.date|date('Y-m-d') }}</p>
+    <p>{{ expense.description }}</p>
     <hr>
     <a href="/">Go Back</a>
 {% endblock %}
