@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20190619001723 extends AbstractMigration
+final class Version20190619165310 extends AbstractMigration
 {
     public function getDescription() : string
     {
@@ -22,7 +22,7 @@ final class Version20190619001723 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('CREATE TABLE expense (id INT AUTO_INCREMENT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE expense ADD category VARCHAR(200) NOT NULL, ADD amount NUMERIC(10, 2) NOT NULL, ADD currency VARCHAR(200) NOT NULL, ADD date DATE NOT NULL, ADD description LONGTEXT DEFAULT NULL, DROP body');
     }
 
     public function down(Schema $schema) : void
@@ -30,6 +30,6 @@ final class Version20190619001723 extends AbstractMigration
         // this down() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() !== 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('DROP TABLE expense');
+        $this->addSql('ALTER TABLE expense ADD body LONGTEXT NOT NULL COLLATE utf8mb4_unicode_ci, DROP category, DROP amount, DROP currency, DROP date, DROP description');
     }
 }

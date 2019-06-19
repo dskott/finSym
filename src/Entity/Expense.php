@@ -17,32 +17,109 @@ class Expense
     private $id;
 
     /**
-     * @ORM\Column(type="text", length=100)
+     * @ORM\Column(type="text")
      */
     private $title;
 
     /**
-     * @ORM\Column(type="text" )
+     * @ORM\Column(type="string", length=200)
      */
-    private $body;
+    private $category;
 
-    // Getters & Setters
-    public function getId(): ?int {
+    /**
+     * @ORM\Column(type="decimal", precision=10, scale=2)
+     */
+    private $amount;
+
+    /**
+     * @ORM\Column(type="string", length=200)
+     */
+    private $currency;
+
+    /**
+     * @ORM\Column(type="date")
+     */
+    private $date;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    public function getId(): ?int
+    {
         return $this->id;
     }
 
-    public function getTitle() {
+    public function getTitle(): ?string
+    {
         return $this->title;
     }
-    public function setTitle($title) {
+
+    public function setTitle(string $title): self
+    {
         $this->title = $title;
+
+        return $this;
     }
 
-    public function getBody() {
-        return $this->body;
-    }
-    public function setBody($body) {
-        $this->body = $body;
+    public function getCategory(): ?string
+    {
+        return $this->category;
     }
 
+    public function setCategory(string $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getAmount()
+    {
+        return $this->amount;
+    }
+
+    public function setAmount($amount): self
+    {
+        $this->amount = $amount;
+
+        return $this;
+    }
+
+    public function getCurrency(): ?string
+    {
+        return $this->currency;
+    }
+
+    public function setCurrency(string $currency): self
+    {
+        $this->currency = $currency;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
 }
