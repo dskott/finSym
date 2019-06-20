@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Repository;
+use App\Entity\SearchDates;
 
 use App\Entity\Expense;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
@@ -14,27 +15,25 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
  */
 class ExpenseRepository extends ServiceEntityRepository
 {
-    public function __construct(RegistryInterface $registry)
-    {
+    public function __construct(RegistryInterface $registry) {
         parent::__construct($registry, Expense::class);
     }
 
-    // /**
-    //  * @return Expense[] Returns an array of Expense objects
-    //  */
-    /*
-    public function findByExampleField($value)
-    {
-        return $this->createQueryBuilder('e')
-            ->andWhere('e.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('e.id', 'ASC')
-            ->setMaxResults(10)
-            ->getQuery()
-            ->getResult()
-        ;
-    }
+    /**
+    * @return Expense[] Returns an array of Expense objects
     */
+    public function findByDateRange(SearchDates $dates) {
+        $startDate = $dates->getStartDate();
+        $endDate = $dates->getEndDate();
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.date BETWEEN :startDate AND :endDate')
+            ->setParameter('startDate', $startDate)
+            ->setParameter('endDate', $endDate)
+            ->orderBy('e.id', 'ASC')
+            ->getQuery()
+            ->getResult();
+    }
+
 
     /*
     public function findOneBySomeField($value): ?Expense

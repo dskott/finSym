@@ -2,6 +2,8 @@
     namespace App\Controller;
 
     use App\Entity\Expense;
+    use App\Entity\SearchDates;
+    use App\Repository\ExpenseRepository;
 
     use Symfony\Component\HttpFoundation\Response;
     use Symfony\Component\HttpFoundation\Request;
@@ -104,7 +106,7 @@
                     'required' => false, 'attr' => array(
                         'class' => 'form-control')))
                 ->add('save', SubmitType::class, array(
-                    'label' => 'Create', 'attr' => array(
+                    'label' => 'Update', 'attr' => array(
                         'class' => 'btn btn-primary mt-3')
                 ))
                 ->getForm();
@@ -125,16 +127,6 @@
         }
 
         /**
-         * @Route("/expense/{id}", name="article_show")
-         */
-        public function show($id) {
-            $expense = $this->getDoctrine()->getRepository
-            (Expense::class)->find($id);
-
-            return $this->render('articles/show.html.twig', array('expense' => $expense));
-        }
-
-        /**
          * @Route("/expense/delete/{id}")
          * @Method({"DELETE"})
          */
@@ -149,6 +141,57 @@
             $response = new Response();
             $response->send();
         }
+
+        /**
+         * @Route("/expense/search", name="search_expense")
+         * @Method({"GET", "POSt"})
+         */
+        public function search(Request $request) {
+            $dates = new SearchDates();
+            $dates->setStartDate(new \DateTime());
+            $dates->setEndDate(new \DateTime());
+
+            $form = $this->createFormBuilder($dates)
+                ->add('startDate', DateType::class, array(
+                    'required' => true, 'attr' => array(
+                        'class' => 'form-control')))
+                ->add('endDate', DateType::class, array(
+                    'required' => true, 'attr' => array(
+                        'class' => 'form-control')))
+                ->add('save', SubmitType::class, array(
+                    'label' => 'Search', 'attr' => array(
+                        'class' => 'btn btn-primary mt-3')
+                ))
+                ->getForm();
+
+            $form->handleRequest($request);
+
+            if($form->isSubmitted() && $form->isValid()){
+                $dates = $form->getData();
+                // Query the data base
+                $expenses = $this->getDoctrine()
+                    ->getRepository(Expense::class)
+                    ->findByDateRange($dates);
+
+                return $this->render('articles/searchResults.html.twig', array('expenses' => $expenses));
+//                return $this->redirectToRoute('expense_list');
+            }
+
+            return $this->render('articles/search.html.twig', array(
+                'form' => $form->createView()
+            ));
+        }
+
+        /**
+         * @Route("/expense/{id}", name="article_show")
+         */
+        public function show($id) {
+            $expense = $this->getDoctrine()->getRepository
+            (Expense::class)->find($id);
+
+            return $this->render('articles/show.html.twig', array('expense' => $expense));
+        }
+
 //        /**
 //         * @Route("article/save")
 //         */
