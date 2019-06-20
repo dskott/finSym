@@ -45,7 +45,7 @@
                     'required' => true, 'attr' => array(
                         'class' => 'form-control')))
                 ->add('currency', TextareaType::class, array(
-                    'required' => true, 'attr' => array(    
+                    'required' => true, 'attr' => array(
                         'class' => 'form-control')))
                 ->add('date', DateType::class, array(
                     'required' => true, 'attr' => array(

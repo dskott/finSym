@@ -1,4 +1,4 @@
-const articles = document.getElementById('articles');
+const articles = document.getElementById('expenses');
 
 if (articles){
     articles.addEventListener('click', e => {
