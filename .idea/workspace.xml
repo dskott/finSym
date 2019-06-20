@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9c977f6f-c5e0-4c99-9fb2-efcebb694dd1" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ArticleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ArticleController.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,11 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Controller/ArticleController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="47" column="56" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
+            <state relative-caret-position="420">
+              <caret line="109" column="28" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
               <folding>
                 <element signature="e#41#64#0#PHP" expanded="true" />
               </folding>
@@ -44,7 +42,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/js/main.js">
           <provider selected="true" editor-type-id="text-editor">
             <state>
@@ -108,8 +106,8 @@
         <option value="$PROJECT_DIR$/templates/articles/show.html.twig" />
         <option value="$PROJECT_DIR$/templates/inc/navbar.html.twig" />
         <option value="$PROJECT_DIR$/templates/articles/index.html.twig" />
-        <option value="$PROJECT_DIR$/src/Controller/ArticleController.php" />
         <option value="$PROJECT_DIR$/public/js/main.js" />
+        <option value="$PROJECT_DIR$/src/Controller/ArticleController.php" />
       </list>
     </option>
   </component>
@@ -301,12 +299,12 @@
       <workItem from="1560875202935" duration="5148000" />
       <workItem from="1560902784111" duration="10849000" />
       <workItem from="1560961043617" duration="6063000" />
-      <workItem from="1561003108585" duration="871000" />
+      <workItem from="1561003108585" duration="1142000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30628000" />
+    <option name="totallyTimeSpent" value="30899000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -453,13 +451,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/ArticleController.php">
+    <entry file="file://$PROJECT_DIR$/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="47" column="56" selection-start-line="47" selection-start-column="56" selection-end-line="47" selection-end-column="56" />
-          <folding>
-            <element signature="e#41#64#0#PHP" expanded="true" />
-          </folding>
+        <state>
+          <caret column="50" selection-start-column="50" selection-end-column="50" />
         </state>
       </provider>
     </entry>
@@ -470,10 +465,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/main.js">
+    <entry file="file://$PROJECT_DIR$/src/Controller/ArticleController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="50" selection-start-column="50" selection-end-column="50" />
+        <state relative-caret-position="420">
+          <caret line="109" column="28" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+          <folding>
+            <element signature="e#41#64#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

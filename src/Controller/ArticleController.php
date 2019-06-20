@@ -81,18 +81,30 @@
          * @Method({"GET", "POSt"})
          */
         public function edit(Request $request, $id) {
-            $article = new Expense();
-            $article = $this->getDoctrine()->getRepository
+            $expense = new Expense();
+            $expense = $this->getDoctrine()->getRepository
             (Expense::class)->find($id);
 
-            $form = $this->createFormBuilder($article)
+            $form = $this->createFormBuilder($expense)
                 ->add('title', TextType::class, array('attr' =>
                     array('class' => 'form-control')))
-                ->add('body', TextareaType::class, array(
+                ->add('category', TextareaType::class, array(
+                    'required' => true, 'attr' => array(
+                        'class' => 'form-control')))
+                ->add('amount', TextareaType::class, array(
+                    'required' => true, 'attr' => array(
+                        'class' => 'form-control')))
+                ->add('currency', TextareaType::class, array(
+                    'required' => true, 'attr' => array(
+                        'class' => 'form-control')))
+                ->add('date', DateType::class, array(
+                    'required' => true, 'attr' => array(
+                        'class' => 'form-control')))
+                ->add('description', TextareaType::class, array(
                     'required' => false, 'attr' => array(
                         'class' => 'form-control')))
                 ->add('save', SubmitType::class, array(
-                    'label' => 'Update', 'attr' => array(
+                    'label' => 'Create', 'attr' => array(
                         'class' => 'btn btn-primary mt-3')
                 ))
                 ->getForm();
